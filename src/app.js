@@ -5,6 +5,7 @@ const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
 
 const app = express()
+const port = process.env.PORT || 3000 // set port. default is 3000 if process.env.PORT doesn't exist
 
 // Define paths for express configs
 const publicDirPath = path.join(__dirname, '../public')
@@ -96,8 +97,8 @@ app.get('*', (req, res) => {
     })
 })
 
-app.listen(3000, () => { // localhost:3000
-    console.log('Server is up on port 3000.')
+app.listen(port, () => { // localhost:3000
+    console.log('Server is up on port ' + port)
 })
 
 //== run in command prompt: nodemon src/app.js
